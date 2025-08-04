@@ -4,10 +4,20 @@ const desserts = require('../data/desserts.js')
 // index
 const index = (req, res) => {
 
+// bonus: recupero la chiave 
+const tags = req.query.tag
 
+let filteredDesserts; 
 
-
-  res.json(desserts)
+if(tags != undefined){
+  filteredDesserts = desserts.filter((item)=>{
+    return item.tags.includes(tags) 
+  })
+}
+else {
+  filteredDesserts = desserts
+}
+  res.json(filteredDesserts)
 }
 // show 
 const show = (req, res) => {
