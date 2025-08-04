@@ -7,16 +7,14 @@ const index = (req, res) => {
 // bonus: recupero la chiave 
 const tags = req.query.tag
 
-let filteredDesserts; 
+let filteredDesserts = desserts
 
 if(tags != undefined){
   filteredDesserts = desserts.filter((item)=>{
     return item.tags.includes(tags) 
   })
 }
-else {
-  filteredDesserts = desserts
-}
+
   res.json(filteredDesserts)
 }
 // show 
