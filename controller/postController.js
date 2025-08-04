@@ -15,8 +15,8 @@ const show = (req, res) => {
     if(!dessert){
       return res.status(404).json({error: 'Not Found', message: "Dessert non trovato"})
     }
-    res.json (dessert)
   })
+  res.json (dessert)
 
   }
 
@@ -33,7 +33,9 @@ const update = (req, res) => {
 const destroy = (req, res) => {
   const id = parseInt(req.params.id);
   const dessert = desserts.find(item => item.id === id);
-  desserts.splice(desserts.indexOf(),1)
+  console.log(dessert)
+  console.log(desserts.indexOf(dessert))
+  desserts.splice(desserts.indexOf(dessert),1)
   res.sendStatus(204)
 
   
