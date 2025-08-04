@@ -33,9 +33,13 @@ const update = (req, res) => {
 const destroy = (req, res) => {
   const id = parseInt(req.params.id);
   const dessert = desserts.find(item => item.id === id);
-  console.log(dessert)
-  console.log(desserts.indexOf(dessert))
+  // console.log(req.params)
+  // console.log(dessert)
+  // console.log(desserts.indexOf(dessert))
   desserts.splice(desserts.indexOf(dessert),1)
+  if(!dessert){
+      return res.status(404).json({error: 'Not Found', message: "Dessert non trovato"})
+    }
   res.sendStatus(204)
 
   
