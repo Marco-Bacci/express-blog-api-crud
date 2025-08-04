@@ -7,21 +7,31 @@ const index = (req, res) => {
 }
 // show 
 const show = (req, res) => {
-  const { id } = req.params;
-  res.send(`dettaglio del post con id ${id}`)
-}
+  const id  = parseInt(req.params.id);
+  // metodo find per trovare elemento dell'array attraverso id 
+  const dessert = desserts.find((item)=>{
+    return item.id === id
+    // verifico se il dessert non è stato trovato
+    if(!dessert){
+      return res.status(404).json({error: 'Not Found', message: "Dessert non trovato"})
+    }
+    res.json (dessert)
+  })
+
+  }
+
 // create
 const store = (req, res) => {
   res.send('creazione di un nuovo post')
 }
 // update
 const update = (req, res) => {
-  const { id } = req.params;
+  const id  = parseInt(req.params.id);
   res.send(`modifica del post con id ${id}`)
 }
 // delete
 const destroy = (req, res) => {
-  const { id } = req.params;
+  const id = parseInt(req.params.id);
   res.send(`cancellazione del post con id ${id}`)
 }
 
