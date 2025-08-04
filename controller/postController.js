@@ -3,6 +3,10 @@ const desserts = require('../data/desserts.js')
 // definizione delle funzioni 
 // index
 const index = (req, res) => {
+
+
+
+
   res.json(desserts)
 }
 // show 
@@ -12,10 +16,10 @@ const show = (req, res) => {
   const dessert = desserts.find((item)=>{
     return item.id === id
     // verifico se il dessert non è stato trovato
-    if(!dessert){
-      return res.status(404).json({error: 'Not Found', message: "Dessert non trovato"})
-    }
   })
+  if(!dessert){
+    return res.status(404).json({error: 'Not Found', message: "Dessert non trovato"})
+  }
   res.json (dessert)
 
   }
