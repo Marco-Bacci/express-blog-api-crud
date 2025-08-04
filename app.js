@@ -4,12 +4,15 @@ const app = express();
 
 const port = 3000;
 
-app.get('/', (req, res)=>{
-  res.send('server del mio blog in ascolto')
-})
-
-// importo il file router 
+// importo il file router dei post
 const postRouter = require('./routers/posts.js')
+
+// inserisco middleware per file statici
+app.use(express.static('public'));
+
+app.get('/', (req, res)=>{
+  res.send('Benevenuti nel mio Blog')
+})
 
 app.use('/posts', postRouter);
 
