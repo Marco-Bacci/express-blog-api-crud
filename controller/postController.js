@@ -32,7 +32,11 @@ const update = (req, res) => {
 // delete
 const destroy = (req, res) => {
   const id = parseInt(req.params.id);
-  res.send(`cancellazione del post con id ${id}`)
+  const dessert = desserts.find(item => item.id === id);
+  desserts.splice(desserts.indexOf(),1)
+  res.sendStatus(204)
+
+  
 }
 
 module.exports = {
