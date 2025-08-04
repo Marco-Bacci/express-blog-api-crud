@@ -1,7 +1,9 @@
+// importo il file dessert dentro la cartella data
+const desserts = require('../data/desserts.js')
 // definizione delle funzioni 
 // index
 const index = (req, res) => {
-  res.send("elenco dei posts")
+  res.json(desserts)
 }
 // show 
 const show = (req, res) => {
