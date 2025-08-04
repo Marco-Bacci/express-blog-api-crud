@@ -4,27 +4,14 @@ const router = express.Router();
 
 
 // index
-router.get('/', (req, res)=>{
-  res.send("elenco dei posts")
-})
+router.get('/')
 // show
-router.get('/:id', (req, res)=>{
-  const { id } = req.params;
-  res.send(`dettaglio del post con id ${id}`)
-})
+router.get('/:id',)
 // create
-router.post('/', (req, res)=>{
-  res.send ('creazione di un nuovo post')
-})
+router.post('/',)
 // update
-router.put('/:id', (req, res)=>{
-  const { id } = req.params;
-  res.send(`modifica del post con id ${id}`)
-})
+router.put('/:id',)
 // delete
-router.delete('/:id', (req, res)=>{
-  const { id } = req.params;
-  res.send (`cancellazione del post con id ${id}`)
-})
+router.delete('/:id',)
 
 module.exports = router;
