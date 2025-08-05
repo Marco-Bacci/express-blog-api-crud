@@ -36,15 +36,17 @@ const store = (req, res) => {
   console.log(req.body);
   // creo il nuovo id
   const newId = desserts[desserts.length - 1].id + 1;
+  // destructuring
+  const {title, content, image, tags} = req.body
 
-  
+
   // creo un nuovo oggetto dessert
   const newDessert = {
     id: newId,
-    title: req.body.title,
-    content: req.body.content,
-    image: req.body.image,
-    tags: req.body.tags,
+    title,
+    content,
+    image,
+    tags,
   };
   // aggiungo il nuovo dessert alla lista
   desserts.push(newDessert),
