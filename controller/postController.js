@@ -62,11 +62,15 @@ const update = (req, res) => {
   if(!dessert){
     return res.status(404).json({error:"404 Not Found", message: "Dolce non trovato"})
   }
+// destructuring 
+
+const { title, content, image, tags} = req.body
+
   // modifico i dati
-  dessert.title = req.body.title;
-  dessert.content = req.body.content;
-  dessert.image = req.body.image;
-  dessert.tags = req.body.tags
+  dessert.title = title;
+  dessert.content = content;
+  dessert.image = image;
+  dessert.tags = tags
 
   res.send(dessert)
 
