@@ -35,6 +35,7 @@ const show = (req, res) => {
 
 // create
 const store = (req, res) => {
+  console.log(req.body)
   res.send('creazione di un nuovo post')
 }
 // update
