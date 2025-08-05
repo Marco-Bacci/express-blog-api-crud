@@ -56,6 +56,18 @@ const store = (req, res) => {
 // update
 const update = (req, res) => {
   const id = parseInt(req.params.id);
+  const dessert = desserts.find((item)=>{
+    return item.id === id
+  })
+  // modifico i dati
+  dessert.title = req.body.title;
+  dessert.content = req.body.content;
+  dessert.image = req.body.image;
+  dessert.tags = req.body.tags
+
+  res.send(dessert)
+
+
   res.send(`modifica del post con id ${id}`);
 };
 // delete
