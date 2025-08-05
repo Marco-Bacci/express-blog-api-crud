@@ -10,7 +10,9 @@ const index = (req, res) => {
   let filteredDesserts = desserts;
 
   if (tag != undefined) {
-    filteredDesserts = desserts.filter((item) => item.tags.includes(tag));
+    filteredDesserts = desserts.filter((item)=>{
+      return item.tags.map((tag) => tag.toLowerCase()).includes(tag.toLowerCase())
+    });
   }
 
   res.json(filteredDesserts);
