@@ -59,6 +59,9 @@ const update = (req, res) => {
   const dessert = desserts.find((item)=>{
     return item.id === id
   })
+  if(!dessert){
+    return res.status(404).json({error:"404 Not Found", message: "Dolce non trovato"})
+  }
   // modifico i dati
   dessert.title = req.body.title;
   dessert.content = req.body.content;
