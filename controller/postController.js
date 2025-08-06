@@ -76,8 +76,6 @@ const { title, content, image, tags} = req.body
 
   res.send(dessert)
 
-
-  res.send(`modifica del post con id ${id}`);
 };
 // delete
 const destroy = (req, res) => {
