@@ -7,8 +7,9 @@ const port = 3000;
 // importo il file router dei post
 const postRouter = require("./routers/posts.js");
 
-// importo il middleware
+// importo i middlewares errorHandler e notFound
 const errorsHandler = require("./middlewares/errorsHandler.js");
+const notFound = require ('./middlewares/notFound.js')
 
 
 // inserisco middleware per file statici
@@ -24,8 +25,9 @@ app.get("/", (req, res) => {
 
 app.use("/posts", postRouter);
 
-// utilizzo errorsHandler globalmente
+// utilizzo errorsHandlerce notFound globalmente
 app.use(errorsHandler);
+app.use(notFound);
 
 app.listen(port, () => {
   console.log(`server in ascolto alla porta ${port}`);
