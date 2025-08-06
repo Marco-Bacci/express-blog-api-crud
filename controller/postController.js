@@ -15,6 +15,7 @@ const index = (req, res) => {
     });
   }
 
+
   res.json(filteredDesserts);
 };
 // show
@@ -64,6 +65,8 @@ const update = (req, res) => {
   if(!dessert){
     return res.status(404).json({error:"404 Not Found", message: "Dolce non trovato"})
   }
+
+ 
 // destructuring 
 
 const { title, content, image, tags} = req.body
